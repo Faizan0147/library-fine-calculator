@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 GRACE_DAYS = 3       # no fine for the first 3 days overdue
 FINE_PER_DAY = 10    # Rs per day after the grace period
-MAX_DAYS = 30        # input range: 0..30 days
+MAX_DAYS = 20        # input range: 0..20 days
 
 
 def fine_for_days(days):
@@ -13,7 +13,7 @@ def fine_for_days(days):
 
 
 def calculate_fine(raw):
-    """Return (ok, message) for days overdue (integer 0-30)."""
+    """Return (ok, message) for days overdue (integer 0-20)."""
     try:
         days = int(raw.strip())
     except (ValueError, AttributeError):
