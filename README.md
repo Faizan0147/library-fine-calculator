@@ -1,7 +1,7 @@
 # Library Fine Calculator
 
-Small Flask web form: enter days a book is overdue (integer 0-30). First 3 days are free,
-then Rs 10 per day. Values outside 0-30 or non-integers are rejected.
+Small Flask web form: enter days a book is overdue (integer 0-20). First 3 days are free,
+then Rs 10 per day. Values outside 0-20 or non-integers are rejected.
 Used for Software Engineering Lab 12/13 (AI-assisted code review + Selenium testing).
 
 ## Run

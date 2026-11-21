@@ -14,8 +14,8 @@ CASES = [
     ("0", "Fine: Rs 0"),
     ("3", "Fine: Rs 0"),
     ("4", "Fine: Rs 10"),
-    ("30", "Fine: Rs 270"),
-    ("31", "Invalid input"),
+    ("20", "Fine: Rs 170"),
+    ("21", "Invalid input"),
 ]
 
 
