@@ -4,6 +4,8 @@ Start the app first (python app.py), then run: python tests/test_selenium.py
 """
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
 URL = "http://127.0.0.1:5000/"
 
@@ -26,7 +28,9 @@ def main():
             driver.get(URL)
             driver.find_element(By.ID, "days").send_keys(value)
             driver.find_element(By.ID, "submit").click()
-            actual = driver.find_element(By.ID, "result").text
+            actual = WebDriverWait(driver, 5).until(
+                EC.presence_of_element_located((By.ID, "result"))
+            ).text
             status = "PASS" if actual == expected else "FAIL"
             failed += status == "FAIL"
             print(f"{value:<8}{expected:<18}{actual:<18}{status}")
