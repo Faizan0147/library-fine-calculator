@@ -7,6 +7,11 @@ FINE_PER_DAY = 10    # Rs per day after the grace period
 MAX_DAYS = 30        # input range: 0..30 days
 
 
+def fine_for_days(days):
+    """Fine in Rs: first GRACE_DAYS are free, then FINE_PER_DAY per extra day."""
+    return max(0, days - GRACE_DAYS) * FINE_PER_DAY
+
+
 def calculate_fine(raw):
     """Return (ok, message) for days overdue (integer 0-30)."""
     try:
@@ -15,8 +20,7 @@ def calculate_fine(raw):
         return False, "Invalid input"
     if not 0 <= days <= MAX_DAYS:
         return False, "Invalid input"
-    fine = max(0, days - GRACE_DAYS) * FINE_PER_DAY
-    return True, f"Fine: Rs {fine}"
+    return True, f"Fine: Rs {fine_for_days(days)}"
 
 
 @app.route("/", methods=["GET", "POST"])
